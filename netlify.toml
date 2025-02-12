@@ -1,7 +1,7 @@
 # example netlify.toml
 [build]
   command = "npm run build"
-  functions = "E:\Homework\MIIC 1325\Lab\file-uploader-deploy-web\Client\Client\netlify\Functions"
+  functions = "E:\Homework\MIIC 1325\Lab\file-uploader-deploy-web\Client\netlify\Functions"
   publish = "client/dist"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
