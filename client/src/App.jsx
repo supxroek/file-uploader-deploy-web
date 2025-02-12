@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     // เปลี่ยน URL จาก localhost เป็นฟังก์ชันใน Netlify
-    fetch("/.netlify/functions/files") // ฟังก์ชัน `files` ที่อยู่ใน netlify/functions
+    fetch("https://file-uploader-deploy-web.onrender.com/files") // ฟังก์ชัน `files` ที่อยู่ใน netlify/functions
       .then((response) => response.json())
       .then((data) => setFiles(data))
       .catch((error) => console.error("Error fetching files:", error));
@@ -17,7 +17,7 @@ function App() {
     const formData = new FormData(event.target);
 
     // เปลี่ยน URL จาก localhost เป็นฟังก์ชันใน Netlify
-    fetch("/.netlify/functions/upload", {
+    fetch("https://file-uploader-deploy-web.onrender.com/upload", {
       method: "POST",
       body: formData,
     })
@@ -47,7 +47,10 @@ function App() {
           <ul>
             {files.map((file, index) => (
               <li key={index} className="file-item">
-                <a href={`/.netlify/functions/uploads/${file}`} download>
+                <a
+                  href={`https://file-uploader-deploy-web.onrender.com/uploads/${file}`}
+                  download
+                >
                   {file}
                 </a>
               </li>
