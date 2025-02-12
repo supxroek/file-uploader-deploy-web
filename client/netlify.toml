@@ -1,0 +1,5 @@
+[build]
+  base = "Client"  # ระบุที่ตั้งของ frontend
+  publish = "Client/dist"  # เผยแพร่ไฟล์ frontend
+  functions = "Client/netlify/Functions"  # ที่เก็บ Netlify functions
+

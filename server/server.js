@@ -6,7 +6,7 @@ const cors = require("cors");
 const { nanoid } = require("nanoid");
 
 const app = express();
-const port = 3000;
+const port = 3001;
 const uploadDir = path.join(__dirname, "uploads");
 
 // เปิด CORS เพื่อให้ React frontend เรียก API ได้
@@ -46,13 +46,13 @@ app.post("/upload", upload.single("file"), (req, res) => {
 });
 
 // ดึงรายการไฟล์ทั้งหมด
-app.get("/files", (req, res) => {
-  fs.readdir(uploadDir, (err, files) => {
-    if (err) {
-      return res.status(500).json({ error: "❌ Error reading files." });
-    }
+app.get("/files", async (req, res) => {
+  try {
+    const files = await fs.promises.readdir(uploadDir);
     res.json(files);
-  });
+  } catch (err) {
+    res.status(500).json({ error: "❌ Error reading files." });
+  }
 });
 
 // ให้ React frontend เข้าถึงไฟล์ที่อัปโหลดได้
