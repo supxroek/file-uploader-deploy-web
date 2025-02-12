@@ -48,7 +48,7 @@ function App() {
             {files.map((file, index) => (
               <li key={index} className="file-item">
                 <a
-                  href={`https://file-uploader-deploy-web.onrender.com/uploads/${file}`}
+                  href={`https://file-uploader-deploy-web.onrender.com/uploads/${file}/download`}
                   download
                 >
                   {file}
