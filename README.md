@@ -1,4 +1,4 @@
-# file-uploader-deploy-web
+# file-uploader
 
 ## Setup Instructions
 
